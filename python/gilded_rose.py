@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+import os
 
 class GildedRose(object):
 
@@ -34,6 +34,9 @@ class GildedRose(object):
                 else:
                     if item.quality < 50:
                         item.quality = item.quality + 1
+                        
+    def dummy(self):
+        print('test')
 
 
 class Item:

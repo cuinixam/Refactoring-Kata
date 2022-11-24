@@ -22,7 +22,7 @@ The idea of the exercise is to do some deliberate practice, and improve your ski
 
 I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/besessener/Refactoring-Kata?branch=main)](https://bettercodehub.com/) 
 
 Your task is to improve it!
 

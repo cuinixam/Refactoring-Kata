@@ -20,7 +20,7 @@ The idea of the exercise is to do some deliberate practice, and improve your ski
 
 ## Better Code Hub
 
-I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
+I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how good/bad the code is. Actually the initial score is already higher than expected. It was supposed to be 5/10, but the python version of the code has already a better basis.
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/besessener/Refactoring-Kata?branch=main)](https://bettercodehub.com/) 
 

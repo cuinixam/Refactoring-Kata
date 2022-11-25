@@ -1,6 +1,16 @@
+"""
+This module fullfills or implements the GildedRose requirements.
+
+They are in GildedRoseRequirements.md.
+"""
 import os
 
 class GildedRose(object):
+    """
+    This class fullfills or implements the GildedRose requirements.
+    
+    They are in GildedRoseRequirements.md.
+    """
 
     def __init__(self, items):
         self.items = items

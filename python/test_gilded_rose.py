@@ -35,8 +35,7 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         
         # Assert expectations
-        self.assertEquals(sell_in__before - 1, items[0].sell_in)
-        self.assertEquals(quality__before,     items[0].quality)
+        self.assertEquals(quality__before, items[0].quality)
         
 if __name__ == '__main__':
     unittest.main()

@@ -7,9 +7,9 @@ have a system in place that updates our inventory for us. It was developed by a 
 Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that
 we can begin selling a new category of items. First an introduction to our system:
 
-* All items have a SellIn value which denotes the number of days we have to sell the item
-* All items have a Quality value which denotes how valuable the item is
-* At the end of each day our system lowers both values for every item
+* Req-001: All items have a SellIn value which denotes the number of days we have to sell the item
+* Req-002: All items have a Quality value which denotes how valuable the item is
+* Req-003: At the end of each day our system lowers both values for every item
 
 Pretty simple, right? Well this is where it gets interesting:
 

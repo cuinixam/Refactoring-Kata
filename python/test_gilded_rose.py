@@ -75,5 +75,27 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEquals(quality__before + 3, items[0].quality)
 
 
+    def test_item_max_quality(self):
+        """Tested: Req-007"""
+
+        # Preconditions
+        sell_in__before = 1
+        quality__before = 49
+        items = [Item("Aged Brie", sell_in__before, quality__before)]
+        gilded_rose = GildedRose(items)
+
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEquals(quality__before + 1 , items[0].quality)
+        
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEquals(quality__before + 1 , items[0].quality)
+
+
 if __name__ == '__main__':
     unittest.main()

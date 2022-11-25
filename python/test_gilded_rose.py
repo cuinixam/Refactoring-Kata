@@ -12,6 +12,16 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals("trivial", items[0].name)
         self.assertEquals(-1, items[0].sell_in)
+        
+    def test_item_trivial_expired(self):
+        """Tested: Req-002,Req-003,Req-004"""
+        items = [Item("trivial", 1, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEquals(9, items[0].quality)
+        gilded_rose.update_quality()
+        self.assertEquals(7, items[0].quality)
+    
 
         
 if __name__ == '__main__':

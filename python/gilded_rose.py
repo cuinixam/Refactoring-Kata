@@ -1,16 +1,9 @@
-"""
-This module fullfills or implements the GildedRose requirements.
+"""Implements the GildedRose requirements. @see requirements.md."""
 
-They are in GildedRoseRequirements.md.
-"""
-import os
 
-class GildedRose(object):
-    """
-    This class fullfills or implements the GildedRose requirements.
-    
-    They are in GildedRoseRequirements.md.
-    """
+class GildedRose:
+
+    """Implements the GildedRose requirements. @see requirements.md."""
 
     def __init__(self, items):
         self.items = items
@@ -58,3 +51,12 @@ class Item:
 
     def __repr__(self):
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
+
+
+def main():
+    my_gilde = GildedRose([])
+    while(1):
+        my_gilde.update_quality()
+
+if __name__ == "main":
+    main()

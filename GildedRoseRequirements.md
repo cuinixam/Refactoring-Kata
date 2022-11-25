@@ -14,7 +14,7 @@ we can begin selling a new category of items. First an introduction to our syste
 Pretty simple, right? Well this is where it gets interesting:
 
 * Req-004: Once the sell by date has passed, Quality degrades twice as fast
-* The Quality of an item is never negative
+* Req-005: The Quality of an item is never negative
 * "Aged Brie" actually increases in Quality the older it gets
 * The Quality of an item is never more than 50
 * "Sulfuras", being a legendary item, never has to be sold or decreases in Quality

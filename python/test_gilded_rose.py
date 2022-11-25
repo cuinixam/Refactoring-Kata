@@ -22,7 +22,21 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals(7, items[0].quality)
     
-
+    def test_item_neg_quality(self):
+        """Tested: Req-005"""
+        
+        # Preconditions
+        sell_in__before = 1
+        quality__before = 0
+        items = [Item("trivial", sell_in__before, quality__before)]
+        
+        # Call item-under-test
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        
+        # Assert expectations
+        self.assertEquals(sell_in__before - 1, items[0].sell_in)
+        self.assertEquals(quality__before,     items[0].quality)
         
 if __name__ == '__main__':
     unittest.main()

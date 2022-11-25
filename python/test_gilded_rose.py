@@ -152,6 +152,31 @@ class GildedRoseTest(unittest.TestCase):
         # Assert expectations
         self.assertEquals(15, item.quality)
         self.assertEquals(4, item.sell_in)
+    
+    def test_backstagePass(self):
+        """Tested: Req-010"""
+
+        # Preconditions
+        name = "Backstage passes to a TAFKAL80ETC concert"
+        sell_in__before = 1
+        quality__before = 20
+
+        item = Item(name, sell_in__before, quality__before)
+        gilded_rose = GildedRose([item])
+
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEquals(quality__before + 3, item.quality)
+        self.assertEquals(0, item.sell_in)
+        
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEquals(0, item.quality)
+        self.assertEquals(-1, item.sell_in)
 
 
 if __name__ == '__main__':

@@ -95,7 +95,25 @@ class GildedRoseTest(unittest.TestCase):
 
         # Assert expectations
         self.assertEquals(quality__before + 1 , items[0].quality)
+        
+        
+    def test_xx(self):
+        """Tested: Req-008"""
 
+        # Preconditions
+        name            = "Sulfuras, Hand of Ragnaros"
+        sell_in__before = 1
+        quality__before = 1
+        
+        items = [Item(name, sell_in__before, quality__before)]
+        gilded_rose = GildedRose(items)
+        
+        # Call item-under-test
+        gilded_rose.update_quality()
+        
+        # Assert expectations
+        self.assertEquals(quality__before , items[0].quality)
+        self.assertEquals(sell_in__before , items[0].sell_in)
 
 if __name__ == '__main__':
     unittest.main()

@@ -10,8 +10,8 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("trivial", 0, 0)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEquals("trivial", items[0].name)
-        self.assertEquals(-1, items[0].sell_in)
+        self.assertEqual("trivial", items[0].name)
+        self.assertEqual(-1, items[0].sell_in)
 
     def test_item_trivial_expired(self):
         """Tested: Req-002,Req-003,Req-004"""
@@ -26,15 +26,15 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(sell_in__before - 1, items[0].sell_in)
-        self.assertEquals(quality__before - 1, items[0].quality)
+        self.assertEqual(sell_in__before - 1, items[0].sell_in)
+        self.assertEqual(quality__before - 1, items[0].quality)
 
         # Call item-under-test
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(sell_in__before - 2, items[0].sell_in)
-        self.assertEquals(quality__before - 3, items[0].quality)
+        self.assertEqual(sell_in__before - 2, items[0].sell_in)
+        self.assertEqual(quality__before - 3, items[0].quality)
 
     def test_item_neg_quality(self):
         """Tested: Req-005"""
@@ -49,7 +49,7 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before, items[0].quality)
+        self.assertEqual(quality__before, items[0].quality)
 
     def test_aged_brie(self):
         """Tested: Req-006"""
@@ -64,15 +64,15 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assertions
-        self.assertEquals(sell_in__before - 1, items[0].sell_in)
-        self.assertEquals(quality__before + 1, items[0].quality)
+        self.assertEqual(sell_in__before - 1, items[0].sell_in)
+        self.assertEqual(quality__before + 1, items[0].quality)
 
         # call iut
         gilded_rose.update_quality()
 
         # Assertions
-        self.assertEquals(sell_in__before - 2, items[0].sell_in)
-        self.assertEquals(quality__before + 3, items[0].quality)
+        self.assertEqual(sell_in__before - 2, items[0].sell_in)
+        self.assertEqual(quality__before + 3, items[0].quality)
 
     def test_item_max_quality(self):
         """Tested: Req-007"""
@@ -87,13 +87,13 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before + 1, items[0].quality)
+        self.assertEqual(quality__before + 1, items[0].quality)
 
         # Call item-under-test
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before + 1, items[0].quality)
+        self.assertEqual(quality__before + 1, items[0].quality)
 
     def test_xx(self):
         """Tested: Req-008"""
@@ -110,8 +110,8 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before, items[0].quality)
-        self.assertEquals(sell_in__before, items[0].sell_in)
+        self.assertEqual(quality__before, items[0].quality)
+        self.assertEqual(sell_in__before, items[0].sell_in)
 
     def test_backstagePass(self):
         """Tested: Req-009"""
@@ -128,30 +128,30 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before + 1, item.quality)
-        self.assertEquals(sell_in__before - 1, item.sell_in)
+        self.assertEqual(quality__before + 1, item.quality)
+        self.assertEqual(sell_in__before - 1, item.sell_in)
 
         # Call item-under-test
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before + 3, item.quality)
-        self.assertEquals(sell_in__before - 2, item.sell_in)
+        self.assertEqual(quality__before + 3, item.quality)
+        self.assertEqual(sell_in__before - 2, item.sell_in)
 
         # Call item-under-test
         for _ in range(4):
             gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(12, item.quality)
-        self.assertEquals(5, item.sell_in)
+        self.assertEqual(12, item.quality)
+        self.assertEqual(5, item.sell_in)
 
         # Call item-under-test
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(15, item.quality)
-        self.assertEquals(4, item.sell_in)
+        self.assertEqual(15, item.quality)
+        self.assertEqual(4, item.sell_in)
     
     def test_backstagePass(self):
         """Tested: Req-010"""
@@ -168,15 +168,15 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(quality__before + 3, item.quality)
-        self.assertEquals(0, item.sell_in)
+        self.assertEqual(quality__before + 3, item.quality)
+        self.assertEqual(0, item.sell_in)
         
         # Call item-under-test
         gilded_rose.update_quality()
 
         # Assert expectations
-        self.assertEquals(0, item.quality)
-        self.assertEquals(-1, item.sell_in)
+        self.assertEqual(0, item.quality)
+        self.assertEqual(-1, item.sell_in)
 
 
 if __name__ == '__main__':

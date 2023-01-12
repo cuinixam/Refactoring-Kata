@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pylama = {extras = ["all"], version = "*"}
+pytest-env = "*"
 
 [dev-packages]
 

@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pydocstyle = "<6.2.0"
 pylama = {extras = ["all"], version = "*"}
 pytest-env = "*"
 

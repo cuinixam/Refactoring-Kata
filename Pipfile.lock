@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3d6de4ac8d25efce5dcdb424798a8bda56ffeb94846d19d6ce1fa8b8094b6f90"
+            "sha256": "a47c91aceaa3bdf922a570878eadab95adde6b961138aa7026ea3dc58597e31d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -219,11 +219,11 @@
         },
         "pydocstyle": {
             "hashes": [
-                "sha256:a04ed1e6fe0be0970eddbb1681a7ab59b11eb92729fdb4b9b24f0eb11a25629e",
-                "sha256:d867acad25e48471f2ad8a40ef9813125e954ad675202245ca836cb6e28b2297"
+                "sha256:1d41b7c459ba0ee6c345f2eb9ae827cab14a7533a88c5c6f7e94923f72df92dc",
+                "sha256:6987826d6775056839940041beef5c08cc7e3d71d63149b48e36727f70144dc4"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==6.2.3"
+            "index": "pypi",
+            "version": "==6.1.1"
         },
         "pyflakes": {
             "hashes": [

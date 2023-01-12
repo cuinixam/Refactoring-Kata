@@ -59,6 +59,14 @@ class TrivialItemUpdater(ItemUpdater):
         self.decrease_quality(2 if self.is_expired() else 1)
 
 
+class ConjuredItemUpdater(ItemUpdater):
+    """Updater for conjured items."""
+
+    def update_quality(self):
+        self.decrease_sell_in()
+        self.decrease_quality(4 if self.is_expired() else 2)
+
+
 class OldCheeseItemUpdater(ItemUpdater):
     """Updater for old cheese."""
 
@@ -88,6 +96,7 @@ class LegendaryItemUpdater(ItemUpdater):
     def update_quality(self):
         pass
 
+
 class GildedRose:
     """Implements the GildedRose requirements. @see requirements.md."""
 
@@ -112,6 +121,9 @@ class GildedRose:
             return TicketItemUpdater(item)
         if item.name == "Aged Brie":
             return OldCheeseItemUpdater(item)
+        # All other items are trivial
+        if item.name == "Conjured":
+            return ConjuredItemUpdater(item)
         # All other items are trivial
         return TrivialItemUpdater(item)
 

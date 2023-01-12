@@ -177,6 +177,31 @@ class GildedRoseTest(unittest.TestCase):
         # Assert expectations
         self.assertEqual(0, item.quality)
         self.assertEqual(-1, item.sell_in)
+        
+    def test_conjured(self):
+        """Tested: Req-011"""
+
+        # Preconditions
+        name = "Conjured"
+        sell_in__before = 1
+        quality__before = 20
+
+        item = Item(name, sell_in__before, quality__before)
+        gilded_rose = GildedRose([item])
+
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEqual(quality__before - 2, item.quality)
+        self.assertEqual(0, item.sell_in)
+        
+        # Call item-under-test
+        gilded_rose.update_quality()
+
+        # Assert expectations
+        self.assertEqual(quality__before - 6, item.quality)
+        self.assertEqual(-1, item.sell_in)
 
 
 if __name__ == '__main__':

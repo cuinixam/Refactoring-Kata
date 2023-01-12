@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import List
 
 
 @dataclass
@@ -47,6 +47,7 @@ class ItemUpdater(ABC):
             self.item.sell_in -= 1
 
     def is_expired(self) -> bool:
+        """Check if item is expired."""
         return self.item.sell_in < 0
 
 
@@ -87,15 +88,8 @@ class LegendaryItemUpdater(ItemUpdater):
     def update_quality(self):
         pass
 
-
 class GildedRose:
     """Implements the GildedRose requirements. @see requirements.md."""
-
-    item_updaters_mapping: Dict[str, ItemUpdater] = {
-        "Sulfuras, Hand of Ragnaros": LegendaryItemUpdater,
-        "Backstage passes to a TAFKAL80ETC concert": TicketItemUpdater,
-        "Aged Brie": OldCheeseItemUpdater
-    }
 
     def __init__(self, items: List[Item]):
         """I have no idea why anyone will document the __init__ method.
@@ -108,10 +102,18 @@ class GildedRose:
     def update_quality(self):
         """Called once at the end of each day."""
         for item in self.items:
-            if self.item_updaters_mapping.get(item.name, None) is not None:
-                self.item_updaters_mapping.get(item.name)(item).update_quality()
-            else:  # all other items are trivial
-                TrivialItemUpdater(item).update_quality()
+            self.create_item_updater(item).update_quality()
+
+    def create_item_updater(self, item: Item) -> ItemUpdater:
+        """Create an updater for an item."""
+        if item.name == "Sulfuras, Hand of Ragnaros":
+            return LegendaryItemUpdater(item)
+        if item.name == "Backstage passes to a TAFKAL80ETC concert":
+            return TicketItemUpdater(item)
+        if item.name == "Aged Brie":
+            return OldCheeseItemUpdater(item)
+        # All other items are trivial
+        return TrivialItemUpdater(item)
 
 
 def main():

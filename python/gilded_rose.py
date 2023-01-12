@@ -32,11 +32,10 @@ class GildedRose:
         item.sell_in = item.sell_in - 1
 
     def update_item_quality(self, item):
-        if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
-            if item.quality > 0: # Req-005
+        if item.quality > 0 and item.quality < 50 : # Req-005 and Req-007
+            if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
                 item.quality = item.quality - 1
-        else:
-            if item.quality < 50:
+            else:
                 item.quality = item.quality + 1
                 if item.name == "Backstage passes to a TAFKAL80ETC concert":
                     if item.sell_in < 11:

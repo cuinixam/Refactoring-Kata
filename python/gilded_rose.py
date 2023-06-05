@@ -1,14 +1,68 @@
 """Implements the GildedRose requirements. @see requirements.md."""
 
+"""
+
+Data (what kind of data this class needs and/or processes):
+* 
+
+Behavior(Actions) - what does it do with the data:
+* changes the quality
+* changes the sell_in
+* 
+
+To be clarified:
+
+* why should the GildedRose know that the sell_in should be updated before the quality?
+* 
+
+"""
+
+from abc import ABC, abstractmethod
+from enum import Enum, auto
+
+
+
+class Item:
+    def __init__(self, name, sell_in, quality):
+        self.name = name
+        self.sell_in = sell_in
+        self.quality = quality
+
+    def __repr__(self):
+        return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
+
+class ItemUpdater(ABC):
+    @abstractmethod
+    def update(self, item):
+        """Updates the item properties."""
+
+class TrivialItemUpdater(ItemUpdater):
+    def update(self, item):
+        pass
+
+class ItemUpdaterFinder:
+    """What kind of item is it.
+    Identifies the item, find the appropriate updater.
+    """
+    def find_updater(self, item) -> ItemUpdater:
+        return TrivialItemUpdater()
 
 class GildedRose:
 
-    """Implements the GildedRose requirements. @see requirements.md."""
+    """Implements the GildedRose requirements. @see requirements.md.
+    This is our business class.
+    """
 
     def __init__(self, items):
         self.items = items
+        self.finder = ItemUpdaterFinder()
 
     def update_quality(self):
+        """This is the method called every day to make sure the items stay updated."""
+        for item in self.items:            
+            self.finder.find_updater(item).update(item)
+
+    def _update_quality(self):
         """called once at the end of each day"""
         for item in self.items:
             if item.name != "Sulfuras, Hand of Ragnaros": # Req-008
@@ -45,16 +99,6 @@ class GildedRose:
                         
     def dummy(self):
         print('test')
-
-
-class Item:
-    def __init__(self, name, sell_in, quality):
-        self.name = name
-        self.sell_in = sell_in
-        self.quality = quality
-
-    def __repr__(self):
-        return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
 
 
 def main():
